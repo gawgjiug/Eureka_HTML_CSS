@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Test Page</title>
+</head>
+<body>
+    <form action="input.jsp" method="post"> 
+        아이디를 입력해주세요 :<br>
+        <input type ="text" name="input_id">
+        <br> <!--줄바꿈-->
+        암호를 입력해주세요 :<br>
+        <input type ="password" name="input_pw">
+        <input type="submit" value="전송">
+
+    </form>
+
+    <h3>Get 방식 전송</h3>
+
+    <form action="input.jsp" method="get"> 
+        아이디를 입력해주세요 :<br>
+        <input type ="text" name="input_id_get">
+        <br> <!--줄바꿈-->
+        암호를 입력해주세요 :<br>
+        <input type ="password" name="input_pw_get">
+        <input type="submit" value="전송">
+
+    </form>
+</body>
+</html>
+
+<!-- post방식은 전달내용이 보이지 않고 get 방식은 내용이 보임 -->
+
+<!-- name 속성을 기술하지 않으면 입력값을 전송하지 못함 -->
+
+<!-- input 에서 name이 의미하는 것은 파라미터의 이름이다
+ 입력한 것을  전송 ->> 서버로 날아감
+ "abc","123" 등의 데이터가 동시에 서버로 전송되었을 때 그 두가지를 구분하기 위함
+ 웹 상에서 변수의 역할을 하는 것을 파라미터라고 부름-->
+
+<!-- 서버에 input.jsp가 있다 라는 가정하에 작성 
+ method 의 기본 값은 Get 방식으로 되어있다.
+ Get 과 Post 방식은 시험에 출제된다.-->
+
+
+<!-- 시멘틱 태그는 div의 id를 부여하여 구분하던 기존 방식을 개선하여
+ tag 자체가 의미를 가지는 태그를 말함. 하지만 레이아웃을 만들어 주지는 않으며 , 레이아웃은 css로 따로 지정해줘야함
+  -->
+ <!-- get 방식 최대 4K 밖에 전달이 안되지만 POST방식은 무제한 전송이 가능함
+  그리고 Get 방식은 전달 내용이 보이지만 POST는 보이지 않는다.
+  때문에 POST 방식을 보통 많이 사용한다. -->

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS STUDY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #f4f4f4;
+            height: 100vh;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: fixed;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar li {
+            margin: 10px 0;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .nested {
+            margin-left: 20px;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+        .header {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        .sidebar li.active {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h4>01장 오리엔테이션</h4>
+        <ul class="nested">
+            <li><a href="web.html">01장-1 WEB이란</a></li>
+        </ul>
+        <h4>02장 HTML5에 대해서</h4>
+        <ul class="nested">
+            <li><a href="Html_Structure.html">02장-1 HTML 기본구조</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <h1>01장-1 WEB이란??</h1>
+        <p>HTML5에서는 웹 페이지의 레이아웃만을 위한 별도의 새로운 Tag들을 제공합니다. 이 Tag들을 의미(Semantic) Tag라고 합니다.</p>
+        <h2>의미(Semantic) Tag</h2>
+        <p>의미(Semantic) Tag란 말 웹브라우저나 개발자에게 명확한 의미를 전달하는 Tag 입니다. 예를 들어 <code>&lt;header&gt;</code> Tag를 보면 의미적으로 헤더를 정의하고 웹브라우저, 개발자에게 헤더부라고 명시하는 역할을 합니다. 하지만 주의할 점은 <code>&lt;header&gt;</code> Tag를 쓴다고 해서 이미 그려진 레이아웃을 만들어주지 않습니다. 단지 의미를 부여할 뿐인 레이아웃은 CSS3로 작업합니다.</p>
+        <h2>HTML5에서 추가된 의미(Semantic) Tag</h2>
+        <ul>
+            <li><code>&lt;header&gt;</code>: HTML 헤더나 section에 헤더를 정의함.</li>
+            <li><code>&lt;nav&gt;</code>: HTML 메뉴바를 정의함.</li>
+            <li><code>&lt;main&gt;</code>: HTML 전체 Content를 정의함.</li>
+            <li><code>&lt;section&gt;</code>: HTML Section을 정의함.</li>
+            <li><code>&lt;article&gt;</code>: HTML 하나의 글(article)을 정의함.</li>
+            <li><code>&lt;aside&gt;</code>: 웹 페이지에서 베너나 추가적인 문구 등을 정의함.</li>
+            <li><code>&lt;footer&gt;</code>: HTML Footer를 정의함.</li>
+        </ul>
+        <img src="path_to_your_image.png" alt="Semantic HTML5 Tags Diagram">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var links = document.querySelectorAll('.sidebar a');
+
+            links.forEach(function(link) {
+                link.addEventListener('click', function(event) {
+                    // Remove the active class from all links
+                    links.forEach(function(l) {
+                        l.parentElement.classList.remove('active');
+                    });
+                    
+                    // Add the active class to the clicked link
+                    this.parentElement.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

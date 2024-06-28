@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block and Inline</title>
+    <style>
+        mark {
+            background-color: #3bffde; /* 밝은 노란색 배경 */
+            color: #000; /* 검정색 텍스트 */
+            font-weight: bold; /* 굵은 텍스트 */
+            padding: 2px 4px; /* 패딩 추가 */
+            border-radius: 10px; /* 모서리를 둥글게 */
+        }
+        h1 h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Block and Inline</h1>
+
+    <p>블록타입 태그는 새로운 줄에서 시작합니다 같은 줄의 나머지 영역을 차지 한다</p>
+    <div>대표적인 태그는 <mark>div, p, ol, ul, h1~h6</mark> 등이 있다</div>
+    <!-- 블록 인라인 시험나옴 
+    어떤 것이 블록일까? 아니면 어떤 것이 인라인 일까? 
+    
+    시험 문제 예상 : 인라인 타입 태그 찾기... 해놓고 블록태그 사이에 span 껴놓음-->
+
+
+    <h2>Inline Tag</h2>
+
+    <p>인라인 타입 태그는 기존줄에서 연결되어 표시한다</p>
+    <p>내용 만큼만 너비를 차지한다</p>
+    <p>대표적인 태그는 <mark>span , b , em, a, ....</mark></p>
+
+    <a>a</a>
+    <img>img</img>
+    <span>span</span>
+    <em>em</em>
+    <span> <mark>코드는 다른 줄에 각각 입력했지만 같은 줄에 입력됨 </mark></span>
+
+</body>
+</html>
