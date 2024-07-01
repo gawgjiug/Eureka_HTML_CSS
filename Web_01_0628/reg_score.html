@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 점수 등록</title>
+</head>
+<body>
+    <h1>점수 등록</h1>
+    <form action ="reg_score.action.jsp" method="post">
+        학생 이름 :
+        <input type="text" name="std_name" placeholder="이름을 입력하세요"> <br>
+
+        등록 암호 :
+        <input type="password" name="std_pwd" value=""><br>
+
+        <input type="radio" name="std_gender" value="M" checked>남자
+        <input type="radio" name="std_gender" value="W" >여자<br>
+
+        듣고 싶은 과목을 선택해주세요<br>
+        <input type="radio" name="subject" value="C">C<br>
+        <input type="radio" name="subject" value="Java">Java<br>
+        <input type="radio" name="subject" value="JavaScript">JavaScript<br>
+        <input type="radio" name="subject" value="Python" disabled>Python<br>
+
+        첨부파일을 선택해주세요 :<br>
+        <input type="file" name="upload"><br>
+
+
+        <select name="subject" size="1">
+            <option value="C">C언어</option>
+            <option value="JAVA">JAVA</option>
+            <option value="HTML" selected>HTML</option>
+            <option value="CSS">CSS</option>
+            </select>
+
+
+            <input type="submit" name="submit" value="전송">
+
+            <br>
+            <fieldset>
+                <legend>회원가입</legend>
+                아이디: <input type="text" name="id"><br><br>
+                비밀번호:<input type="password" name="pwd">
+            </fieldset>
+
+
+    </form>
+</body>
+</html>
+
+<!-- 라디오는 name이 같은 것 들 중 하나를 선택하는 것 name이 같아야 함 -->
