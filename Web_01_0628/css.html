@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 01</title>
+    <style>
+span{
+
+    border: 3px black dotted;
+    margin: 20px;
+    padding: 10px;
+    
+    /* width: 100px; height: 100px;  span은 크기를 지정해도 안됨
+    inline타입이라*/
+    
+}
+/* solid는 실선을 말함 dotted....이고 dashed는 - - - 
+span은 inline 타입이라 글자의 영역만 자신의 영역으로 인식하지만
+div는 블록타입이라 너비를 다 채우지만 custom도 가능함
+*/
+/* body{
+    background-color: black;
+} */
+div{
+    color: aquamarine;
+    border: 5px bisque dashed;
+    width: 100px; height: 100px;
+    margin: 50px;
+}
+
+    </style>
+</head>
+<body>
+    
+    <span>Span 01</span>
+    <span>Span 02</span>
+    <div>DIV</div>
+    <span>Span 03</span>
+</body>
+</html>
+
+<!-- DIV가 줄바꿈 해버림 -->
+ <!-- CSS 에서는 선택자 라는 것이 있음.
+  스타일을 지정할 때, 대상,어떻게 
+   
+  
+  마진을 설정할 때, 좌우마진은 겹치지 않지만 상하 마진은 겹침
+  -->
+
+  <!-- padding 안쪽 여백
+   테두리 border
+   margin : 바깥 여백
+    -->
