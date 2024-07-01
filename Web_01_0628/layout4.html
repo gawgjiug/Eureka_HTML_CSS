@@ -4,13 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>layout#2</title>
+  <title>layout#3</title>
   <style>
     div.container {
       width: 60%;
       margin: 0 auto;
-      /* 마진 상하 = 0
-      좌우 같은값 : 좌우 중앙정렬 */
     }
 
     #header {
@@ -30,12 +28,13 @@
       width: 70%;
       background-color: lightgreen;
       float: left;
+      opacity: .7;
     }
 
     #footer {
       height: 100px;
       background-color: lightcoral;
-      clear: left;
+      /* clear: both; */
     }
   </style>
 </head>
@@ -48,8 +47,3 @@
   </div>
 </body>
 </html>
-
-<!-- float로 겹치지 않게 하는 방법 : clear left 
- left로 float한 애들과 겹침을 해소하겠다..
- float left 요소를 가로배치할 때 사용함 
- clear -->
