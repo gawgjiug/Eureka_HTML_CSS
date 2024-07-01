@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>포지셔닝(positioning)</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #333;
+    }
+
+    div {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    div.relative {
+      background-color: lightcoral;
+    }
+
+    div.absolute {
+      background-color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="relative"></div>
+  <div class="absolute"></div>
+  <div class="relative"></div>
+</body>
+</html>
+
+<!-- position : 태그의 위치를 이동 시킬 때 사용함
+ static : 기본 값 브라우저가 지정한 값
+ absolute : 이동 기준 부모태그 또는 브라우저 좌상단
+ relative : 현재 좌표기준
+ fixed 화면상의 기준 좌표 -->
