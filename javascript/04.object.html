@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체(Object)</title>
+</head>
+<body>
+  <script>
+    const myCar = {
+      type: '전기차',
+      doors: 5,
+      color: 'white',
+      brand: '슈퍼카',
+      start: function() {
+        console.log(this.brand +'차량 출발');
+      },
+      stop: function(msg) {
+        console.log(msg + ' 정지');
+      }
+    }
+
+    console.log(myCar['doors']);
+    console.log(myCar.color);
+    console.log(myCar.brand);
+    myCar.start();
+    myCar.stop('우리차');
+  </script>
+</body>
+</html>
+<!-- 자바에서는 this를 쓰지않아도 생략되지만
+ 자바스크립트에서는 this를 쓰지않으면 무조건 지역변수나 전역변수를 의미하는 것이지
+ 객체가 가지고 있는 속성을 부를 수는 없다. -->
