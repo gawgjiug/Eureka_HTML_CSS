@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈</title>
+
+    <script>
+
+// function print_gugudan(x){
+    
+//     for(let i=x; i<=x; i++){
+//         for(let j=1; j<10; j++){
+//             console.log(x + "X" + j + "=" +(i*j) );
+//         }
+//     }
+// }
+
+// print_gugudan = (x) => {
+//     for(let i =1; i<=9; i++){
+//         console.log(x + "X" + i + "=" + (x*i));
+//     }
+// }
+
+print_gugudan = (x) => {
+    for(let i =1; i<=9; i++){
+        console.log(`${x} X ${i} = ${x*i}`);
+    }
+}
+
+// 템플릿 리터럴 사용 
+// +을 여러 번 사용할 필요가 없기 때문에 직관적인 코드를 작성할 수 있음
+// 백틱을 이용하여 여러 줄에 걸친 문자열을 쉽게 작성할 수 있음 
+
+// let multiLineString1 = "This is line 1\nThis is line 2\nThis is line 3";
+// let multiLineString2 = `This is line 1
+// This is line 2
+// This is line 3`;
+
+
+function print_gugudan(x,y){
+    for(let i = x; i<=y; i++){
+        for(let j = 1; j<10; j++){
+            console.log(i + "X" + j + "=" +(i*j) );
+        }
+    }
+}
+
+    </script>
+    <script>
+        print_gugudan(3);
+    </script>
+</head>
+<body>
+    
+
+</body>
+</html>
