@@ -1,0 +1,50 @@
+<!-- 퀴즈 3. 아래의 코드를 작성하세요.
+1. find_number.html 생성
+2. 1~100사이 난수를 생성하여 r에 저장한다.
+3. prompt()함수를 통해 숫자를 입력받는다.
+let ans = prompt("1~100사이숫자입력","")
+4. 입력받은 숫자가 r보다 크면 "낮춰주세요", r보다 작으면 "높여주세요" , r과 같으면 "정답입니다"를 콘솔에 출력한다.
+5. 정답을 맞출때까지 3~4를 반복한다. (편집됨)  -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz 2</title>
+</head>
+
+<body>
+    <h1 id="answer"></h1>
+
+    <script>
+        let r =Math.floor(Math.random()*100)+1
+        console.log(r)
+
+        let ans = parseInt(prompt("숫자를 입력하세요","1"));
+
+        while(ans != r){
+            if(ans > r){
+            alert("낮춰주세요!")
+        }
+        else if(ans < r){
+            alert("높여주세요!")
+        }
+        ans =parseInt(prompt("숫자를 입력하세요","1"));
+    
+        }
+        alert("정답입니다!")
+        document.getElementById("answer").innerText = `정답은: ${r} 입니다!`;
+
+       
+    </script>
+
+  
+    
+
+    
+
+    
+    
+</body>
+</html>
