@@ -8,12 +8,34 @@
     <script>
         var age = 30;
         age = 40;
+        // 전역 변수 선언
+        let score = 70 //변수 선언
+
+        function prn (){
+            var age2 =40
+            age3 =50
+            // var 없이 선언하면 전역변수 선언
+        }
+        // alert(age2)
+
+        prn()
+        // 함수 호출이 필요함
+        // let score = 80 - > error 발생 재선언 불가능.
+        score = 80 //재 할당은 가능
+
+        
+
+        alert(age3)
+
+        // 함수안에 var로 정의된 변수는 지역변수임. 함수 밖에서 사용안됨.
+
     </script>
 </head>
 <body>
 
     <script>
-        alert("age는 " + age);
+        // alert("age는 " + age);
+      
     </script>
     <h1>
         js 변수
@@ -21,3 +43,10 @@
     
 </body>
 </html>
+
+<!-- var : 전역변수, 지역변수 , 재선언 가능
+ let : 전역변수, 블록변수(블록단위 관리) 재선언 불가능
+ ex) if문안에 let i를 선언했을 경우, if문이 종료되면 i도 없어짐. -->
+
+ <!-- 호이스팅이 무엇이냐? 
+  가끔씩 선언을 뒤에 하는 경우가 생김,  -->

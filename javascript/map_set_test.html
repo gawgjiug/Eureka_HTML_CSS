@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mat_set</title>
+
+    <script>
+        
+        // let map = new Map(  );
+        
+        // map.set('1', 'str1') //문자형 키
+        // map.set(1,'num') //숫자형 키
+        // map.set(true,'bool1') //불린 형 키
+        
+        // // 맵은 키의 타입을 타입을 변환시키지 않고 그대로 유지
+
+        // alert(map.get(1))
+        // alert(map.get('1'))
+        // alert(map.size)
+
+    </script>
+
+    <script>
+        let set = new Set();
+        
+        let john = {name :"John"}
+        let pete = {name : "Pete"}
+        let mary = {name : "Mary"}
+        
+        set.add(john);
+        set.add(pete)
+        set.add(mary);
+        set.add(john);
+        set.add(mary);
+
+        alert(set.size)
+
+        for(let user of set){
+            alert(user.name)
+        }
+
+    </script>
+<!-- set은 중복을 허용하지 않는 컬렉션 -->
+
+</head>
+<body>
+    <h1>
+        맵,셋 테스트
+    </h1>
+</body>
+</html>
