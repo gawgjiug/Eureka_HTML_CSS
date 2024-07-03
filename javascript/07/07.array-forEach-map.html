@@ -16,8 +16,8 @@
 
   numbers.forEach(loopNumber1);
 
-  function loopNumber1(item, index) {
-    console.log(item, index);
+  function loopNumber1(item) {
+    console.log(item);
   }
 
   console.log('==========================');
@@ -26,6 +26,8 @@
     return 10 + value;
   });
   console.log(newArray1);
+
+  // map : 기존배열의 값을 가공해서 새로운 배열을 만들고자 할 때 사용함.
 
   let newArray2 = numbers.map(loopNumber2);
 

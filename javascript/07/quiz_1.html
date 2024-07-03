@@ -1,0 +1,96 @@
+<!--  find_number_gui.html 생성
+화면에 "게임시작" 버튼과 1~100까지의 버튼만든다.
+"게임시작" 버튼 누르면 1~100사이 난수를 생성하여 r에 저장한다.
+100개의 버튼에 이벤트를 등록한다. 동작은 클릭한 버튼의 숫자와 r을 비교하여 버튼숫자와 r과 같으면 "정답", r이 크면 "UP",  r이 작으면 "DN"을 클릭한 버튼에 숫자대신 표시한다.
+시도횟수를 적당한 곳에 표시한다. 숫자버튼을 누르때마다 시도횟수는 1씩 올라간다. -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>열받는 퀴즈</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            gap: 5px;
+            margin-top: 20px;
+        }
+        #grid button {
+            width: 50px;
+            height: 50px;
+        }
+        #count{
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button id="start">게임 시작</button>
+    <div id="grid"></div>
+
+    <div id = "count">시도 횟수: 0</div>
+
+    <script>
+
+
+
+        document.getElementById('start').addEventListener('click', function() {
+            let count = 0;
+            let r = Math.floor(Math.random() * 100)+1
+            console.log(`정답은 ${r}`)
+            const grid = document.getElementById('grid');
+            grid.innerHTML = ''; // 기존 버튼을 초기화합니다.
+            const countDisplay = document.getElementById('count'); // 변수 선언
+            countDisplay.textContent = '시도 횟수 : 0';
+
+
+
+            for (let i = 0; i < 100; i++) {
+                const button = document.createElement('button');
+                button.textContent = i + 1; // 버튼 번호 표시
+                grid.appendChild(button);
+                button.addEventListener('click',function(){
+                    const chooseNum = parseInt(button.textContent)
+                    count ++;
+                    if(chooseNum === r){
+                        button.textContent = '정답!';
+                        alert('정답 입니다!')
+                    }
+                    else if(chooseNum < r){
+                        button.textContent = 'UP'
+                        button.style.backgroundColor = "lightblue";
+                    }
+                    else{
+                        button.textContent = 'DN'
+                        button.style.backgroundColor = "lightcoral"
+                    }
+
+                    countDisplay.textContent = `시도 횟수 : ${count}`;
+                })
+
+            }
+        });
+        
+
+
+
+
+    </script>
+</body>
+</html>
+
+<!-- innerHTML과 Text의 차이?
+  -->
+

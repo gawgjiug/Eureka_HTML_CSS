@@ -11,13 +11,14 @@
   const pets = ['개', '고양이', '곰', '말'];
 
   console.log('[pets]', pets);
-  pets.splice(2);
+  pets.splice(2); //삭제 시작번호 , 개수 ,추가 값
   console.log('[splice()]', pets);
   pets.splice(0, 1);
   console.log('[splice()]', pets);
   pets.splice(0, 0, '햄스터');
   console.log('[splice()]', pets);
   pets.splice(1, 1, '거북이', '앵무새');
+  //1번을 지우고 거북이,앵무새 추가
   console.log('[splice()]', pets);
   console.log('=================');
 
@@ -32,3 +33,4 @@
 </script>
 </body>
 </html>
+
