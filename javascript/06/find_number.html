@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container-fluid" id="btn-click">
+
+        <button class="btn btn-click">Click!</button>
+
+
+        <!-- 클릭횟수를 표시 -->
+         <script>
+            let count =0
+            const button = document.querySelector('#btn-click')
+
+            button.onclick = function(){
+                count ++ 
+                document.getElementById("msg").innerText = `${count}`
+            }
+         </script>
+
+
+    </div>
+
+    <h1 id="msg"></h1>
+    
+</body>
+</html>
+
+<!-- querySelector
+ const header = document.querySelector('#header');
+ id 값이 header인 요소
+ const navItem = document.querySelector('.nav-item');
+ 클래스가 nav-item인 첫 번째 요소
+const paragraph = document.querySelector('p');
+// 첫 번째 <p> 태그
+const mainContainer = document.querySelector('.container#main');
+// 클래스가 container이고 id가 main인 첫 번째 요소
+-->

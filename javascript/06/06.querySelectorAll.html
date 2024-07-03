@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>querySelectorAll()</title>
+  <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+  </div>
+  
+  <script>
+    const buttons = document.querySelectorAll('.btn');
+    // 모든 버튼 요소들을 NodeList로 반환함 이 NodeList는 buttons 변수에 저장됨.
+
+    // btn이라는 스타일을 가진 것을 .btn이라고 함
+
+    console.log(buttons);
+    console.log(buttons.length);
+
+    for (let button of buttons) {
+      button.onclick = function() {
+        // console.log(this.innerText = "Click!");
+        console.log(this.innerText);
+      }
+    }
+
+    // 태그와 태그 사이의 text를 innerText라는 속성으로 접근함
+  </script>
+</body>
+</html>
