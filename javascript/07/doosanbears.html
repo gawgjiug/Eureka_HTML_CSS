@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doosan Bears</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .gif-container {
+            position: relative;
+        }
+
+        .gif {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+        img{
+            border: lightblue;
+            margin: 15px;
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="gif-container">
+        <img src="./image/양의지.png" data-gif="./image/양의지.gif" alt="양의지" class="gif">
+        <img src="./image/김재환.png" data-gif= "./image/김재환gif.gif" alt="김재환" class="gif">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const gifs = document.querySelectorAll('.gif');
+        //클래스가 gif인 첫 번째 요소 선택해서 할당 (전부)
+
+        gifs.forEach(gif => {
+        const originalSrc = gif.src; // 원본 src 속성 값을 저장합니다
+        const gifSrc = gif.getAttribute('data-gif'); // data-gif 속성 값을 저장합니다
+
+        gif.addEventListener('mouseover', () => {
+            gif.src = gifSrc; // GIF 이미지로 변경합니다
+        });
+
+        gif.addEventListener('mouseout', () => {
+            gif.src = originalSrc; // 원래의 PNG 이미지로 복원합니다
+        });
+    });
+});
+
+            //클래스가 gif인 첫번 째 HTML 요소를 선택하여 gif 변수에 할당
+
+        //     gif.addEventListener('mouseover', () => {
+        //         gif.src = gif.getAttribute('data-gif');
+        //     });
+
+        //     // gif 요소에 mouseover 이벤트 리스너를 추가함. 사용자가 gif 이미지에 마우스를 올렸을 때,
+        //     // gif 요소의 data-gif 속성 값을 가져옴 (getAttribute) img 에서 이 값은 src 속성으로 설정됨.
+        //     // 
+
+        //     gif.addEventListener('mouseout', () => {
+        //         gif.src = './image/양의지.png';
+        //         gif.src = './image/김재환.png';
+        //     });
+            
+
+        //     //mouseout gif 이미지에서 마우스를 뗐을 때, gif 이미지의 src 속성을 다시 png 이미지 경로로 변경
+        // });
+    </script>
+
+</body>
+</html>
+
+<!-- style 태그 설명
+ 
+body 
+display :flex  = body 요소를 FlexBox 컨테이너로 설정 FlexBox는 내부 요소들을 정렬하고 배치하는 데 유용함
+justify - content : center = FlexBox 컨테이너 내에서 요소들을 수평방향으로 중앙에 배치함
+align - items : center  = 컨테이너 내에서 요소들을 수직 방향으로 중앙에 배치함
+height : 100vh = body 요소의 높이를 뷰포트 높이의 100% 설정함. vh는 뷰표트 높이의 백분율을 의미함.
+body  요소의 기본 여백을 제거
+
+display : block = img 요소를 블록레벨 요소로 설정. 기본적으로 img는 인라인 요소이지만 블록 요소는 항상 새 줄에서 시작함.
+
+max - width 100% = 이미지가 부모 요소의 너비를 넘지 않도록 함.-->
+
+
+<!-- DOMContentLoaded 은 HTML 문서가 완전히 로드되고 DOM 트리가 완전히 구성된 후 실행 됨.
+  const -->
+
+  <!-- 클래스가 gif인 이미지 요소를 선택합니다.
+사용자가 이미지에 마우스를 올리면 이미지의 src 속성을 data-gif 속성 값으로 변경하여 GIF 이미지를 표시합니다.
+사용자가 이미지에서 마우스를 떼면 이미지의 src 속성을 원래의 PNG 이미지 경로로 변경하여 원래 이미지를 표시합니다. -->
