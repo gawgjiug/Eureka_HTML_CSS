@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 퀴즈</title>
+
+    <script>
+    // 계산 함수
+    function calculate() {
+        // 입력된 값과 연산자 가져오기
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let opr = document.getElementById('opr').value;
+        let num2 = parseFloat(document.getElementById('num2').value);
+
+        // 계산 및 결과 출력
+        let result = '';
+        if (!isNaN(num1) && !isNaN(num2)) {
+            switch (opr) {
+                case '+': result = num1 + num2; break;
+                case '-': result = num1 - num2; break;
+                case '*': result = num1 * num2; break;
+                case '/': result = num2 !== 0 ? num1 / num2 : 'Error: 0으로 나눌 수 없습니다.'; break;
+                case '%': result = num1 % num2; break;
+                default: result = '연산자를 선택하세요'; break;
+            }
+        } else {
+            result = '숫자를 입력하세요';
+        }
+        document.getElementById('result').value = result;
+    }
+
+    // 이벤트 리스너 추가
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('num1').addEventListener('input', calculate);
+        document.getElementById('num2').addEventListener('input', calculate);
+        document.getElementById('opr').addEventListener('change', calculate);
+    });
+    </script>
+
+    <!-- num1 요소에 대해 input 이벤트 리스너 추가 숫자를 입력할 때 마다 함수호출 됨
+      -->
+</head>
+<body>
+    <h1>my event test</h1>
+
+    <input type="text" id="num1" placeholder="숫자를 입력하세요">
+    
+    <select id="opr">
+        <option value="">연산자를 선택하세요</option>
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+
+    <input type="text" id="num2" placeholder="숫자를 입력하세요">
+    =
+    <input type="text" id="result" >
+</body>
+</html>

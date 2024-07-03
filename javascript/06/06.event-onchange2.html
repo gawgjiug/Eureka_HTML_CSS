@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onchange</title>
+  <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <form>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">과목선택</label>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <label><input class="form-check-input" type="radio" name="subject" value="html">HTML</label>
+        </div>
+        <div class="form-check">
+          <label><input class="form-check-input" type="radio" name="subject" value="css">CSS</label>
+        </div>
+        <div class="form-check">
+          <label><input class="form-check-input" type="radio" name="subject" value="javascript">자바스크립트</label>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">휴가지</label>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <label><input class="form-check-input" type="checkbox" name="holiday" value="paris">파리</label>
+        </div>
+        <div class="form-check">
+          <label><input class="form-check-input" type="checkbox" name="holiday" value="sydney">시드니</label>
+        </div>
+        <div class="form-check">
+          <label><input class="form-check-input" type="checkbox" name="holiday" value="singapore">싱가포르</label>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+   const radios = document.querySelectorAll('[name="subject"]');
+  for (let index in radios) {
+    if (radios.hasOwnProperty(index)) {
+      radios[index].onchange = function () {
+        console.log(index); // 각 라디오 버튼의 인덱스번호를 반환
+        console.log(radios[index]);//radios객체 [index] 의 값.
+        console.log(radios[index].value);//radios 객체[index]중 value만 
+      }
+    }
+  }
+  const checkboxes = document.querySelectorAll('[name="holiday"]');
+  for (let checkbox of checkboxes) {
+    checkbox.onchange = () => {
+      console.log(checkbox);
+      // console.log(checkbox.checked, checkbox.value);
+    }
+  }
+</script>
+</body>
+</html>
+<!-- for of는 저장되어있는 객체의 값을 전부 반환 
+ checkbox 안에는 클래스 정보와 type 정보 name 정보 value 정보가 있음.
+ 
+ for in 은 객체의 열거 가능한 속성을 반복, 속성 이름(또는 배열의 인덱스를 반환함)
+ 왜 hasOwnProperty를 사용하는가?
+ 
+ for .. in 루프는 객체의 열거 가능한 모든 속성을 반복하므로 상속된 속성까지 포함될 수 있음.
+ 이를 방지하기 위해 메서드를 사용하여 객체 자신이 가진 속성만을 필터링하는 것. 그러나 NodeList는 일반 객체가 아니고
+ 배열과 유사한 객체이므로 for ..of 루프를 사용하는 것이 일반적-->
