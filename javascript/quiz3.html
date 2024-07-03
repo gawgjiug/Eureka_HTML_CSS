@@ -1,0 +1,35 @@
+<!-- 퀴즈 4. 아래의 자바스크립트 코드를 작성하세요.
+** 2차원 좌표상에서 컴퓨터가 묻어둔 지뢰 찾는 코드입니다 **
+1. find_mine.html 작성한다.
+2. 컴퓨터가 1~10 사이 임의의 x, y좌표를 생성, 저장한다.
+3. 사용자로부터 1~10사이 x좌표와 y좌표를 입력받는다.
+4. 입력받은 좌표와 컴퓨터 좌표간 직선거리를 반올림하여 정수로 계산한다.(  dis = Math.sqrt( x좌표간거리^2 + y좌표간거리^2  )
+5. 직선거리를 출력한다. 만약 직선거리가 0이면 "** 지뢰를 찾았읍니다 **" 출력한다.
+6. 좌표입력횟수가 10회넘도록 못찾으면 "** 당신은 바보입니다 ** 출력하고 종료한다. 지뢰의 좌표를 출력한다.
+7. 만약 직선거리가 0이 아니면 3부터 반복한다. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let x = Math.floor(Math.random()*10)+1
+        let y = Math.floor(Math.random()*10)+1
+        alert(x+","+y)
+        while(true){
+            let ux = prompt("X좌표를 입력하세요(1~10)","")
+            let uy = prompt("Y좌표를 입력하세요(1~10)","")
+            let dis = Math.sqrt( (x-ux)*(x-ux) + (y-uy)*(y-uy) )
+            dis = Math.round(dis)
+            //반올림
+            if(dis == 0){
+                alert("** 지뢰를 찾았읍니다 **")
+                break
+            }
+            alert("거리는 "+dis)
+        }
+    </script>
+</head>
+<body>
