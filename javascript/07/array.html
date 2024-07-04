@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열테스트</title>
+    <script>
+
+
+    let arr = [];
+
+    arr.push("홍")
+    arr.push("김")
+    console.log(arr)
+    arr.splice(0,0,"박") //0번째에 0개삭제 "박 "추가
+    console.log(arr)
+    arr.splice(1,1,"최") //1번째에 1개삭제 "최" 추가
+    console.log(arr)
+    
+    arr.sort()
+    console.log(arr)
+    arr.reverse()
+    console.log("reverse 후",arr)
+
+
+    let obj ={} //빈 연관배열
+    obj.name = "홍"
+    obj.age = "30"
+    obj.name = "김"
+    obj.info = function( ){
+        alert(`${obj.name}`)
+    }
+    console.log(obj)
+    obj.info()
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>
