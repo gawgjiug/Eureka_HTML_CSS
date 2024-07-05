@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button, input {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="number"] {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let choosebtn = document.querySelector('#choose');
+            let winners = [];
+            
+            let maxName;
+            let person = [];
+
+            document.querySelector('#maxName').addEventListener('change', function() {
+                maxName = Number(this.value);
+                console.log(`최대 참여자 수: ${maxName}`);
+            });
+
+            let btn = document.querySelector('#btn');
+            btn.addEventListener('click', function() {
+                if (person.length < maxName) {
+                    let name = prompt("이벤트 참여자 이름을 입력하세요");
+                    if (name) {
+                        person.push(name);
+                        console.log(`이벤트 참여자: ${name}`);
+                        displayParticipants();
+                    } else {
+                        alert("이름을 입력하세요");
+                    }
+                } else {
+                    alert("최대 참여자 수에 도달했습니다.");
+                }
+            });
+
+            choosebtn.addEventListener('click', function() {
+                if (person.length >= 2) { // 당첨자를 2명 뽑기 위해 최소 2명의 참여자가 필요
+                    winners = [];
+                    for (let i = 0; i < 2; i++) {
+                        let r = Math.floor(Math.random() * person.length);
+                        winners.push(person[r]);
+                        person.splice(r, 1); // 당첨자를 배열에서 제거
+                    }
+                    displayWinner();
+                    displayParticipants();
+                } else {
+                    alert("최소 2명의 참여자가 필요합니다.");
+                }
+            });
+
+            function displayWinner() {
+                alert(`이벤트 당첨자는: ${winners.join(', ')}`);
+            }
+
+            function displayParticipants() {
+                let personNameDiv = document.querySelector('#person_name');
+                personNameDiv.innerHTML = '';
+                person.forEach(name => {
+                    let li = document.createElement('li');
+                    li.textContent = name;
+                    personNameDiv.appendChild(li);
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <button id="btn">이벤트 참여자 등록 버튼</button>
+        <input type="number" id="maxName" placeholder="최대 참여자 수를 설정하세요">
+        <ul id="person_name"></ul>
+        <button id="choose">이벤트 당첨자 추첨</button>
+    </div>
+    
+</body>
+</html>
+
+
+
+
+    <!--
+    1. 이벤트 참여자 저장용 배열을 생성한다.
+    2. 이벤트 참여자 등록 버튼 누를때마다 prompt("이벤트 참여자 이름을 입력하세요","")를 통해 참여자 이름을 입력받아 내부 배열에 등록한다.
+    3. 이벤트 참여자 이름을 id="names"에 전체이름을 출력한다.
+    4. 참여자는 이벤트 참여자 수 이상 등록 못하게 한다.
+    5. 참여자 등록할때마다 이벤트 참여자 수: X명 을 반영시킨다.
+    6. 이벤트 당첨자 추첨 버튼 누르면 이벤트 참여자 수 보다 참여자가 적으면 "참여자를 추가하세요" 경고창 표시한다.
+       이벤트 당첨자 추첨 버튼 누르면 이벤트 참여자중 중복되지 않게 2명을 선택하여 이름들을 id="winners" 안에 출력한다.
+    -->

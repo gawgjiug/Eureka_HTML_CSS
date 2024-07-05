@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DOM::add#1</title>
-  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
@@ -28,17 +28,25 @@
   for (let list of lists) {
     list.onclick = function() {
       const newList = document.createElement('li');
+      //빈 요소를 생성 내부적으로 Element Node 라는 객체를 만든 것.
 
       const newAttr = document.createAttribute('class');
-      newAttr.value = 'list-group-item active';
+      //newAttr class 클래스 속성 생성
+      newAttr.value = 'list-group-item active';//newAttr의 클래스 이름을 설정
+      //active는 무엇이냐? 활성화된 항목은 .active를 추가함. 파란색 배경 추가
       newList.setAttributeNode(newAttr);
+
+      //setAttributeNode 로 집어넣음
 
       const newText = list.innerText + ' [추가]';
       const newTextNode = document.createTextNode(newText);
+      //태그사이의 글자를 생성
       newList.appendChild(newTextNode);
 
       console.log(list.parentElement);
       list.parentElement.appendChild(newList);
+      //list = click한 li태그
+      //list의 부모요소에 자식태그를 추가)
     }
   }
 </script>

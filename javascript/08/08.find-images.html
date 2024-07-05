@@ -39,9 +39,12 @@
       imgs.forEach(function(item, index) {
         if (num == index) {
           item.style.display = 'none';
+          //화면에서 사라짐
         } else {
           item.style.display = '';
+          //none 이 아닌 값은 화면에 보여줌
         }
+        //style : css 정보를 가지고 있음.
       });
     }
   </script>

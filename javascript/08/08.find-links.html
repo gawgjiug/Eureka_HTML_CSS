@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DOM::Find links</title>
-  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
 <body>
   <div class="container">
@@ -33,7 +33,12 @@
       [...hyperlinks].forEach(function(item, index) {
         if (num == index) item.click();
       });
+      //...arr은 arr의 값을 하나씩 분할하면서 num과 일치하는 index를 가진 링크를 찾아서 클릭
     }
   </script>
 </body>
 </html>
+
+<!-- btn class 클릭하면 input클래스에 name 이 num인 것의 value를 변수 num에 저장
+ hyperlinks 에 link 정보를 저장 
+ item은 link값이고 index가 순서임-->
