@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX</title>
+  <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-4">
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button">AJAX 활용</button>
+        </div>
+      </div>
+      <div class="col-8" id="pocket"></div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.btn-primary').onclick = function() {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', '10.ajax-xml.xml');
+      //확장자가 xml임 : 주고받는 데이터를 태그 형식으로 정의해놓은 것을 xml이라고 함
+      xhr.send();
+
+      xhr.onreadystatechange = function() {
+        //이벤트 이름임. 상태가 바뀔때 마다 호출되는 이벤트임.
+        //객체를 만든 상태가 0, open하면 1, send 2 , 서버에서 데이터를 받으면 3, 수신완료 4번.
+        //교재 312p , 응답 코드가 200이여야 정상임.
+        if (this.readyState == 4 && this.status == 200) {
+          const doc = this.responseXML;
+          //responseXML에 저장됨.
+
+          // console.log(doc);
+          const lists = doc.querySelectorAll('list');
+
+          let listGroup = '';
+          for (let list of lists) {
+            console.log(list);
+            console.log(list.childNodes);
+            console.log(typeof list.childNodes[0], list.childNodes[0]);
+            console.log(typeof list.childNodes[0].nodeValue, list.childNodes[0].nodeValue);
+            let title = list.childNodes[0].nodeValue;
+            listGroup += '<li class="list-group-item">' + title + '</li>';
+          }
+
+          document.querySelector('#pocket').innerHTML = '<ul class="list-group">' + listGroup + '</ul>';
+        }
+      };
+    }
+  </script>
+</body>
+</html>
+
+<!-- 페이지 전체를 읽어오는 것 보다
+ 데이터를 UI에 가져오기 때문에 효율적이고 속도가 빠르다. -->

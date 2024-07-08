@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX</title>
+  <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-4">
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button">AJAX 활용</button>
+        </div>
+      </div>
+      <div class="col-8" id="pocket"></div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.btn-primary').onclick = function () {
+      const xhr = new XMLHttpRequest();
+
+      xhr.open('GET', '10.ajax-basic-response.html');
+
+      //요청 초기화 ('통신방식', )
+
+      //세팅
+
+      xhr.send();
+      //요청을 전송 : 괄호안에는 post일 경우, 전송할 데이터
+
+
+      //실제 통신
+
+      xhr.onload = function() {
+        document.querySelector('#pocket').innerHTML = this.responseText;
+      }
+      //xhr 통신객체 통신을해서 데이터가 도착하면 responseText에 담김 poket 사이에 집어넣겠다.
+
+    }
+  </script>
+</body>
+</html>

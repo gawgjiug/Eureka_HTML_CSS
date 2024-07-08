@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX</title>
+  <link rel="stylesheet" href="./bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="row my-3">
+      <div class="col-4">
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button">날씨예보</button>
+        </div>
+      </div>
+      <div class="col-8" id="pocket"></div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.btn-primary').onclick = function() {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', '10.ajax-weather.xml');
+      xhr.send();
+
+      xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          const doc = this.responseXML;
+          const ctg = doc.querySelector('category');
+          const guid = doc.querySelector('guid');
+
+          let listGroup = '';
+          let ctg_title = ctg.childNodes[0].nodeValue;
+          let guid_value = guid.childNodes[0].nodeValue;
+
+          listGroup += '<li class="list-group-item">동네이름: ' + ctg_title + '</li>';
+          listGroup += '<li class="list-group-item"><a href="' + guid_value + '" target="_blank">' + guid_value + '</a></li>';
+
+          // <data> 추출. <data> 안에 모든 정보 있음
+          const data_arr = doc.querySelectorAll('data');
+          for (let data of data_arr) { // <data> 순서대로 추출
+            let result = ""; // 한번에 출력할 값 저장용
+            let day = data.querySelector("day").childNodes[0].nodeValue;
+            let day_str = ["오늘", "내일", "모레"];
+            result += day_str[day]; // 0 => 오늘, 1 => 내일, 2 => 모레
+            let hour = data.querySelector("hour").childNodes[0].nodeValue;
+            result += " ~" + hour + "시까지"; // 시간
+
+            // 날씨, (만약 비 온다면 강수량 추가), 풍향, 풍속
+            let wfkor = data.querySelector("wfKor").childNodes[0].nodeValue;
+            result += " 날씨:" + wfkor; // 날씨
+            let pty = data.querySelector("pty").childNodes[0].nodeValue;
+            if (parseInt(pty) > 0) {
+              let r12 = data.querySelector("r12").childNodes[0].nodeValue;
+              result += " 강수량:" + r12; // 강수량
+            }
+            let wdkor = data.querySelector("wdKor").childNodes[0].nodeValue;
+            result += " 풍향:" + wdkor; // 풍향
+            let ws = data.querySelector("ws").childNodes[0].nodeValue;
+            result += " 풍속:" + Math.round(ws * 10) / 10 + "m/s"; // 풍속
+            listGroup += '<li class="list-group-item">' + result + '</li>';
+          }
+
+          document.querySelector('#pocket').innerHTML = '<ul class="list-group">' + listGroup + '</ul>';
+        }
+      };
+    }
+  </script>
+</body>
+</html>
